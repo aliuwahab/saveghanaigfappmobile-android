@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SaveGhanaApp</string>
+    <string name="app_title">Revenue Reporting</string>
+    <string name="app_welcome_title">MMDAs IGFTracker</string>
+    <string name="app_welcome_description">SaveGhana with support from Star-Ghana hopes to enhance
+        community participation in the actvities of MMDAs. You are loging in to contribute towards that.
+        You report revenues and also being offered with the chance to keep track of all revenue reports.
+        Your reports of revenue will help in keeping track of district assembly revenue mobilisation and
+        expenditure.view_user_profile_button_description
+    </string>
+    <string name="add_revenue_button_description">Click to make a new revenue entry</string>
+    <string name="view_user_profile_button_description">Click to view and edit your profile</string>
+    <string name="register_a_tax_payer_button_text">Register A Tax Payer</string>
+    <string name="register_a_tax_payer_button_description">Click to add a tax payer to the district database</string>
+    <string name="login_button_text">Login</string>
+    <string name="register_tax_payer_heading_text">REGISTER TAX PAYER</string>
+</resources>

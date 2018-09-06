@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    tools:context=".ReportRevenueActivity">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="3dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/title_linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/circle"
+                    android:padding="10dp"
+                    android:tint="@color/colorWhite"
+                    app:srcCompat="@drawable/ic_receipt_black_24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="SUBMIT REVENUE"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/pointed_square_image_view"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/title_linear_layout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-10dp"
+                android:rotation="45"
+                android:src="@drawable/square" />
+
+
+            <RelativeLayout
+                android:id="@+id/revenue_amount_relative_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pointed_square_image_view"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp">
+
+                <ImageView
+                    android:id="@+id/revenue_sign_amount_image_view"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="8dp"
+                    android:tint="@color/colorWhite"
+                    app:srcCompat="@drawable/ic_attach_money_black_24dp" />
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_alignBottom="@id/revenue_sign_amount_image_view"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@id/revenue_sign_amount_image_view"
+                    android:background="@color/lightgray"
+                    android:hint="Revenue Amount: GHC 250"
+                    android:paddingLeft="20dp" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/date_relative_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/revenue_amount_relative_layout"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/label_revenue_date_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Revenue Collected Date"/>
+
+                <CalendarView
+                    android:id="@+id/revenue_reported_date"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="200dp"
+                    android:layout_width="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:firstDayOfWeek="2">
+
+                </CalendarView>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/revenue_description_relative_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/date_relative_layout"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp">
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/lightgray"
+                    android:hint="Any revelant description? Enter it here........"
+                    android:paddingLeft="20dp" />
+
+
+            </RelativeLayout>
+
+
+            <CheckBox
+                android:id="@+id/confirm_revenue_entried_checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/revenue_description_relative_layout"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="sans-serif"
+                android:text="I confirm the above revenue entries are accurate."
+                android:textColor="@color/colorBlack" />
+
+
+            <Button
+                android:id="@+id/submit_revenue_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/confirm_revenue_entried_checkbox"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/buttonstyleorange"
+                android:fontFamily="sans-serif-medium"
+                android:text="Submit Revenue"
+                android:textColor="@color/colorWhite" />
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>
