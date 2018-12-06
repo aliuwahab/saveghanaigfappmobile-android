@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.gbeilaaliuwahab.saveghanaapp">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
         android:name="com.orm.SugarApp"
         android:allowBackup="true"
@@ -22,8 +24,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".ReportRevenueActivity" />
         <activity android:name=".ViewRevenueReportsActivity" />
-        <activity android:name=".SendMessageActivity" />
-        <activity android:name=".ViewProfileActivity" />
+        <activity android:name=".MessageActivity" />
+        <activity android:name=".ProfileActivity" />
 
         <meta-data
             android:name="DATABASE"
@@ -38,7 +40,8 @@
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="com.gbeilaaliuwahab.saveghanaapp.models" />
 
-        <activity android:name=".RegisterTaxPayerActivity"></activity>
+        <activity android:name=".RegisterTaxPayerActivity" />
+        <activity android:name=".ListRegisteredTaxPayersActivity"></activity>
     </application>
 
 </manifest>

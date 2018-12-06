@@ -5,13 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
-import android.widget.Toast;
 
 import maes.tech.intentanim.CustomIntent;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private CardView addRevenue, viewRevenueReports,sendMessage,viewProfile,registerTaxPayer;
+//    private CardView addRevenue, viewRevenueReports,sendMessage,viewProfile,registerTaxPayer;
+    private CardView sendMessage,viewProfile,registerTaxPayer;
 
 
     @Override
@@ -33,26 +33,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent cardViewIntent;
 
         switch (v.getId()) {
-            case R.id.add_revenue_card:
-                cardViewIntent = new Intent(this, ReportRevenueActivity.class);
-                startActivity(cardViewIntent);
-                intentAnimation();
-                break;
-
-            case R.id.view_revenue_card:
-                cardViewIntent = new Intent(this, ViewRevenueReportsActivity.class);
-                startActivity(cardViewIntent);
-                intentAnimation();
-                break;
+//            case R.id.add_revenue_card:
+//                cardViewIntent = new Intent(this, ReportRevenueActivity.class);
+//                startActivity(cardViewIntent);
+//                intentAnimation();
+//                break;
+//
+//            case R.id.view_revenue_card:
+//                cardViewIntent = new Intent(this, ViewRevenueReportsActivity.class);
+//                startActivity(cardViewIntent);
+//                intentAnimation();
+//                break;
 
             case R.id.send_message_card:
-                cardViewIntent = new Intent(this, SendMessageActivity.class);
+                cardViewIntent = new Intent(this, MessageActivity.class);
                 startActivity(cardViewIntent);
                 intentAnimation();
                 break;
 
             case R.id.view_profile_card:
-                cardViewIntent = new Intent(this, ViewProfileActivity.class);
+                cardViewIntent = new Intent(this, ProfileActivity.class);
                 startActivity(cardViewIntent);
                 intentAnimation();
                 break;
@@ -74,15 +74,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void associateCardViewsWithClassProperties(){
 
 //        associate class properties with view fields
-        addRevenue = (CardView) findViewById(R.id.add_revenue_card);
-        viewRevenueReports = (CardView) findViewById(R.id.view_revenue_card);
+//        addRevenue = (CardView) findViewById(R.id.add_revenue_card);
+//        viewRevenueReports = (CardView) findViewById(R.id.view_revenue_card);
+
+
+
         sendMessage = (CardView) findViewById(R.id.send_message_card);
         viewProfile = (CardView) findViewById(R.id.view_profile_card);
         registerTaxPayer = (CardView) findViewById(R.id.register_a_tax_payer_card);
 
         //Set on click listeners to cardviews class properties
-        addRevenue.setOnClickListener(this);
-        viewRevenueReports.setOnClickListener(this);
+//        addRevenue.setOnClickListener(this);
+//        viewRevenueReports.setOnClickListener(this);
+
+
         sendMessage.setOnClickListener(this);
         viewProfile.setOnClickListener(this);
         registerTaxPayer.setOnClickListener(this);

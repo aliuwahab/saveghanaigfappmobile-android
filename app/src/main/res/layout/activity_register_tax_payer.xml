@@ -28,6 +28,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+
+
                 <LinearLayout
                     android:id="@+id/title_linear_layout"
                     android:layout_width="match_parent"
@@ -48,14 +50,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_marginBottom="20dp"
                         android:fontFamily="sans-serif-medium"
                         android:text="@string/register_tax_payer_heading_text"
                         android:textColor="@color/colorWhite"
-                        android:textSize="25sp" />
+                        android:textSize="30sp" />
 
                 </LinearLayout>
+
+
 
                 <ImageView
                     android:id="@+id/pointed_square_image_view"
@@ -68,121 +71,288 @@
                     android:src="@drawable/square" />
 
 
-                <RelativeLayout
-                    android:id="@+id/revenue_amount_relative_layout"
+                <LinearLayout
+                    android:id="@+id/tax_payer_name_linear_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/pointed_square_image_view"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tax_payer_name_label"
+                        android:text="Tax Payer's Name:"
+                        android:layout_width="match_parent"
+                        android:textColor="@color/colorAccent"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@color/lightgray"
+                        android:hint="E.g Dubie Hill Top Hotel"
+                        android:paddingLeft="20dp" />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/tax_payer_bracket_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tax_payer_name_linear_layout"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
-                    android:layout_marginRight="10dp">
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/revenue_sign_amount_image_view"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@color/colorPrimary"
-                        android:padding="8dp"
-                        android:tint="@color/colorWhite"
-                        app:srcCompat="@drawable/ic_attach_money_black_24dp" />
+                    <TextView
+                        android:id="@+id/tax_payer_bracket_label"
+                        android:textColor="@color/colorAccent"
+                        android:text="Indicate the Tax Bracket of Tax Payer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@color/lightgray"
+                        android:hint="Search by entering e.g 'Hotels' "
+                        android:paddingLeft="20dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/tax_payer_contact_person_relative_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tax_payer_bracket_layout"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tax_payer_name_contact_person_label"
+                        android:textColor="@color/colorAccent"
+                        android:text="Tax Payer Contact Person: "
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@color/lightgray"
+                        android:hint="E.g. Sumaila Dubie"
+                        android:paddingLeft="20dp" />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/tax_payer_contact_details_phone_number_relative_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tax_payer_contact_person_relative_layout"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tax_payer_name_contact_number_label"
+                        android:textColor="@color/colorAccent"
+                        android:text="Tax Payer Contact Number: "
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
 
                     <EditText
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_alignBottom="@id/revenue_sign_amount_image_view"
-                        android:layout_alignParentTop="true"
-                        android:layout_toRightOf="@id/revenue_sign_amount_image_view"
+                        android:layout_height="50dp"
                         android:background="@color/lightgray"
-                        android:hint="Revenue Amount: GHC 250"
+                        android:hint="E.g +233207361609"
                         android:paddingLeft="20dp" />
 
-                </RelativeLayout>
+
+                </LinearLayout>
 
 
-                <RelativeLayout
-                    android:id="@+id/date_relative_layout"
+                <LinearLayout
+                    android:id="@+id/tax_payer_contact_details_email_relative_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/revenue_amount_relative_layout"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="35dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginRight="10dp">
-
-                    <TextView
-                        android:id="@+id/label_revenue_date_text_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Select Revenue Collected Date"/>
-
-                    <CalendarView
-                        android:id="@+id/revenue_reported_date"
-                        android:layout_marginTop="15dp"
-                        android:layout_height="200dp"
-                        android:layout_width="match_parent"
-                        android:layout_alignParentTop="true"
-                        android:firstDayOfWeek="2">
-
-                    </CalendarView>
-
-
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:id="@+id/revenue_description_relative_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/date_relative_layout"
+                    android:layout_below="@id/tax_payer_contact_details_phone_number_relative_layout"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginRight="10dp">
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
 
+
+                    <TextView
+                        android:id="@+id/tax_payer_name_contact_email_label"
+                        android:textColor="@color/colorAccent"
+                        android:text="Tax Payer Contact Email."
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@color/lightgray"
+                        android:hint="E.g aliuwahab@gmail.com"
+                        android:paddingLeft="20dp" />
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/tax_payer_description_relative_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tax_payer_contact_details_email_relative_layout"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tax_payer_description_label"
+                        android:textColor="@color/colorAccent"
+                        android:text="Tax Payer Description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:layout_alignParentTop="true"
                         android:background="@color/lightgray"
-                        android:hint="Any revelant description? Enter it here........"
+                        android:hint="E.g. Any revelant description? Enter it here........"
                         android:paddingLeft="20dp" />
 
 
-                </RelativeLayout>
+                </LinearLayout>
 
 
-                <CheckBox
-                    android:id="@+id/confirm_revenue_entried_checkbox"
+
+                <LinearLayout
+                    android:id="@+id/tax_payer_location_name_relative_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/revenue_description_relative_layout"
+                    android:layout_below="@id/tax_payer_description_relative_layout"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="20dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="sans-serif"
-                    android:text="I confirm the above tax payer entries are accurate."
-                    android:textColor="@color/colorBlack" />
+                    android:orientation="vertical">
 
 
-                <Button
-                    android:id="@+id/submit_revenue_button"
+                    <TextView
+                        android:id="@+id/tax_payer_location_name_label"
+                        android:textColor="@color/colorAccent"
+                        android:text="Tax Payer Location Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@color/lightgray"
+                        android:hint="E.g. Pulima, Gbanhabelle"
+                        android:paddingLeft="20dp" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/tax_payer_location_address_linear_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/confirm_revenue_entried_checkbox"
-                    android:layout_marginRight="10dp"
+                    android:layout_below="@id/tax_payer_location_name_relative_layout"
                     android:layout_marginLeft="10dp"
-                    android:background="@drawable/buttonstyleorange"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Register Tax Payer"
-                    android:textColor="@color/colorWhite" />
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tax_payer_location_address_label"
+                        android:textColor="@color/colorAccent"
+                        android:text="Tax Payer Address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/lightgray"
+                        android:hint="E.g. Pulima Gbanha Belle, House Number, Pu-Pu-017"
+                        android:paddingLeft="20dp" />
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/tax_payer_registration_confirmation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tax_payer_location_address_linear_layout"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/confirm_revenue_entried_checkbox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="sans-serif"
+                        android:text="I confirm the above tax payer information recorded are accurate."
+                        android:textColor="@color/colorAccent"
+                        />
+
+
+                    <Button
+                        android:id="@+id/submit_revenue_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/confirm_revenue_entried_checkbox"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/buttonstyleorange"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Register Tax Payer"
+                        android:textColor="@color/colorWhite" />
+                </LinearLayout>
+
 
 
             </RelativeLayout>
 
 
         </android.support.v7.widget.CardView>
+
+
     </ScrollView>
 
 </RelativeLayout>

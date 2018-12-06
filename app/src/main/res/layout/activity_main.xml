@@ -43,6 +43,8 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+
+        <!--BEGINING OF MAIN VIEW WRAPPER-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -51,6 +53,116 @@
             android:background="#fcfcfc"
             android:gravity="center"
             android:id="@+id/ll">
+
+
+
+            <!--BEGINING OF BLOCK FOR REPORTING REVENUE-->
+
+            <!--<LinearLayout-->
+                <!--android:clipToPadding="false"-->
+                <!--android:gravity="center"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<android.support.v7.widget.CardView-->
+                    <!--android:foreground="?android:attr/selectableItemBackground"-->
+                    <!--android:clickable="true"-->
+                    <!--android:id="@+id/add_revenue_card"-->
+                    <!--android:layout_width="160dp"-->
+                    <!--android:layout_height="190dp"-->
+                    <!--android:layout_margin="10dp">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:gravity="center">-->
+                        <!--<ImageView-->
+                            <!--android:layout_width="64dp"-->
+                            <!--android:layout_height="64dp"-->
+                            <!--android:background="@drawable/cerclebackgroundpurple"-->
+                            <!--android:src="@drawable/ic_control_point_black_24dp"-->
+                            <!--android:padding="10dp"/>-->
+
+                        <!--&lt;!&ndash;android:src="@drawable/ic_attach_money_black_24dp"&ndash;&gt;-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:textStyle="bold"-->
+                            <!--android:layout_marginTop="10dp"-->
+                            <!--android:text="Add Revenue"/>-->
+                        <!--<View-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="1dp"-->
+                            <!--android:background="@color/lightgray"-->
+                            <!--android:layout_margin="10dp"/>-->
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:gravity="center"-->
+                            <!--android:text="@string/add_revenue_button_description"-->
+                            <!--android:padding="5dp"-->
+                            <!--android:textColor="@android:color/darker_gray"/>-->
+
+                    <!--</LinearLayout>-->
+
+                <!--</android.support.v7.widget.CardView>-->
+
+
+                <!--<android.support.v7.widget.CardView-->
+                    <!--android:foreground="?android:attr/selectableItemBackground"-->
+                    <!--android:clickable="true"-->
+                    <!--android:id="@+id/view_revenue_card"-->
+                    <!--android:layout_width="160dp"-->
+                    <!--android:layout_height="190dp"-->
+                    <!--android:layout_margin="10dp">-->
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:gravity="center">-->
+                        <!--<ImageView-->
+                            <!--android:layout_width="64dp"-->
+                            <!--android:layout_height="64dp"-->
+                            <!--android:background="@drawable/cerclebackgroundpink"-->
+                            <!--android:src="@drawable/ic_lightbulb_outline_black_24dp"-->
+                            <!--android:padding="10dp"/>-->
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:textStyle="bold"-->
+                            <!--android:layout_marginTop="10dp"-->
+                            <!--android:text="View Past Reports"/>-->
+                        <!--<View-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="1dp"-->
+                            <!--android:background="@color/lightgray"-->
+                            <!--android:layout_margin="10dp"/>-->
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:gravity="center"-->
+                            <!--android:text="View past revenue reports"-->
+                            <!--android:padding="5dp"-->
+                            <!--android:textColor="@android:color/darker_gray"/>-->
+
+                    <!--</LinearLayout>-->
+                <!--</android.support.v7.widget.CardView>-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--END OF BLOCK FOR REPORTING REVENUE-->
+
+
+
+
+
+
+            <!--BEGINING OF BLOCK FOR REGISTERING A TAX PAYER-->
+
             <LinearLayout
                 android:clipToPadding="false"
                 android:gravity="center"
@@ -58,15 +170,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+
                 <android.support.v7.widget.CardView
                     android:foreground="?android:attr/selectableItemBackground"
+                    android:id="@+id/register_a_tax_payer_card"
                     android:clickable="true"
-                    android:id="@+id/add_revenue_card"
-                    android:layout_width="160dp"
-                    android:layout_height="190dp"
+                    android:layout_width="340dp"
+                    android:layout_height="150dp"
                     android:layout_margin="10dp">
-
                     <LinearLayout
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
@@ -74,18 +187,15 @@
                         <ImageView
                             android:layout_width="64dp"
                             android:layout_height="64dp"
-                            android:background="@drawable/cerclebackgroundpurple"
+                            android:background="@drawable/cerclebackgroundgreen"
                             android:src="@drawable/ic_control_point_black_24dp"
                             android:padding="10dp"/>
-
-                        <!--android:src="@drawable/ic_attach_money_black_24dp"-->
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
                             android:layout_marginTop="10dp"
-                            android:text="Add Revenue"/>
+                            android:text="Register A Tax Payer"/>
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -95,56 +205,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="@string/add_revenue_button_description"
-                            android:padding="5dp"
-                            android:textColor="@android:color/darker_gray"/>
-
-                    </LinearLayout>
-
-                </android.support.v7.widget.CardView>
-
-
-                <android.support.v7.widget.CardView
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:id="@+id/view_revenue_card"
-                    android:layout_width="160dp"
-                    android:layout_height="190dp"
-                    android:layout_margin="10dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:background="@drawable/cerclebackgroundpink"
-                            android:src="@drawable/ic_lightbulb_outline_black_24dp"
-                            android:padding="10dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:layout_marginTop="10dp"
-                            android:text="View Past Reports"/>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/lightgray"
-                            android:layout_margin="10dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="View past revenue reports"
+                            android:text="@string/register_a_tax_payer_button_description"
                             android:padding="5dp"
                             android:textColor="@android:color/darker_gray"/>
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
-
             </LinearLayout>
+
+
+            <!--END OF BLOCK FOR REGISTERING A TAX PAYER-->
+
+
+
+
+            <!--BEGINING OF BLOCK FOR VIEWING PROFILE AND SENDING MESSAGE-->
             <LinearLayout
                 android:clipToPadding="false"
                 android:gravity="center"
@@ -239,61 +314,15 @@
             </LinearLayout>
 
 
-
-            <LinearLayout
-                android:clipToPadding="false"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <android.support.v7.widget.CardView
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:id="@+id/register_a_tax_payer_card"
-                    android:clickable="true"
-                    android:layout_width="340dp"
-                    android:layout_height="150dp"
-                    android:layout_margin="10dp">
-                    <LinearLayout
-
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-                        <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:background="@drawable/cerclebackgroundgreen"
-                            android:src="@drawable/ic_control_point_black_24dp"
-                            android:padding="10dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:layout_marginTop="10dp"
-                            android:text="Register A Tax Payer"/>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/lightgray"
-                            android:layout_margin="10dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@string/register_a_tax_payer_button_description"
-                            android:padding="5dp"
-                            android:textColor="@android:color/darker_gray"/>
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-            </LinearLayout>
+            <!--END OF BLOCK FOR VIEWING PROFILE AND SENDING MESSAGE-->
 
 
 
 
         </LinearLayout>
+
+        <!--BEGINING OF MAIN VIEW WRAPPER-->
+
 
     </android.support.v4.widget.NestedScrollView>
 
