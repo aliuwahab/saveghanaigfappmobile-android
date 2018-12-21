@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.Toast;
 
 import maes.tech.intentanim.CustomIntent;
 
@@ -18,6 +19,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        registerTaxPayer = (CardView) findViewById(R.id.register_a_tax_payer_card) ;
+        registerTaxPayer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(MainActivity.this, "Register", Toast.LENGTH_LONG).show();
+
+            }
+        });
 
         receiveMessagesPassedToThisIntent();
         associateCardViewsWithClassProperties();

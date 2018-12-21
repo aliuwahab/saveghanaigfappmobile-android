@@ -10,8 +10,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.gbeilaaliuwahab.saveghanaapp.API.JsonAPIRequest;
+import com.gbeilaaliuwahab.saveghanaapp.Helpers.LocalStore;
+import com.gbeilaaliuwahab.saveghanaapp.Helpers.URLs;
 import com.gbeilaaliuwahab.saveghanaapp.models.RevenueCollectorProfile;
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
+
+import java.net.URL;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,6 +32,8 @@ public class LoginActivity extends AppCompatActivity {
     private JsonAPIRequest jsonAPIRequest;
 
     public static final String USERNAME = "com.gbeilaaliuwahab.saveghanaapp.MESSAGE";
+//      public static final String USERNAME = "com.gbeilaaliuwahab.saveghanaapp.MESSAGE";
+//    public static final String PASSWORD = "com.gbeilaaliuwahab.saveghanaapp.PASSWORD";
     public static final String PASSWORD = "com.gbeilaaliuwahab.saveghanaapp.PASSWORD";
 
 
@@ -38,12 +47,14 @@ public class LoginActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
 
-         intent = new Intent(this, MainActivity.class);
+        // intent = new Intent(this, MainActivity.class);
 
 
 
         InnitialiseViewWidgets();
         innitialiseOnClickListeners();
+        whenUserClicksLoginButton();
+       // startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
     }
 
@@ -71,14 +82,43 @@ public class LoginActivity extends AppCompatActivity {
     
     public void whenUserClicksLoginButton(){
 
-        String usernameEntered = "";
-        String passwordEntered = "";
+        String usernameEntered = "hadi";
+        String passwordEntered = "VKAQ2";
 
         EditText username = (EditText) findViewById(R.id.login_username_edit_text);
         EditText password = (EditText) findViewById(R.id.login_user_password_edit_text);
 
         if(username != null && !username.equals("")) {
-            username.getText().toString();
+           // username.getText().toString();
+            //http://mmda-igf-tracker-app.herokuapp.com/api/authenticate (POST)
+//            Username: hadi
+//            Password: VKAQ2
+
+            Ion.with(LoginActivity.this)
+                    .load(URLs.LOGIN)
+                    .setMultipartParameter("revenue_collector_username", "hadi")
+                    .setMultipartParameter("password", "VKAQ2")
+                    .asJsonObject()
+                    .setCallback(new FutureCallback<JsonObject>() {
+                        @Override
+                        public void onCompleted(Exception e, JsonObject result) {
+                            // do stuff with the result or error
+                            Log.e("DATA", result.toString());
+
+                            if(result != null){
+
+                                if (result.get("status").getAsString().equalsIgnoreCase("Success")){
+                                    new LocalStore(LoginActivity.this).saveUserObjectAsString(
+                                            result.get("data").getAsJsonObject().toString());
+                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
+
+
+                                }
+
+                            }
+                        }
+                    });
         }else{
 //            StyleableToast.makeText(this, "Hello World!", Toast.LENGTH_LONG, R.style.mytoast).show();
             return;
