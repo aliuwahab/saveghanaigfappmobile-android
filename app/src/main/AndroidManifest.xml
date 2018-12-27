@@ -26,6 +26,7 @@
         <activity android:name=".ViewRevenueReportsActivity" />
         <activity android:name=".MessageActivity" />
         <activity android:name=".ProfileActivity" />
+        <activity android:name=".CardDemoActivity" />
 
         <meta-data
             android:name="DATABASE"

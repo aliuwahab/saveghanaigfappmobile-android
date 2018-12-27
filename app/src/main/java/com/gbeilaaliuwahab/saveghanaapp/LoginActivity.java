@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.gbeilaaliuwahab.saveghanaapp.API.JsonAPIRequest;
 import com.gbeilaaliuwahab.saveghanaapp.Helpers.LocalStore;
+import com.gbeilaaliuwahab.saveghanaapp.Helpers.ServerCallClass;
 import com.gbeilaaliuwahab.saveghanaapp.Helpers.URLs;
 import com.gbeilaaliuwahab.saveghanaapp.models.RevenueCollectorProfile;
 import com.google.gson.JsonObject;
@@ -53,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
 
         InnitialiseViewWidgets();
         innitialiseOnClickListeners();
-        whenUserClicksLoginButton();
+       // whenUserClicksLoginButton();
        // startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
     }
@@ -82,11 +83,13 @@ public class LoginActivity extends AppCompatActivity {
     
     public void whenUserClicksLoginButton(){
 
-        String usernameEntered = "hadi";
-        String passwordEntered = "VKAQ2";
+
 
         EditText username = (EditText) findViewById(R.id.login_username_edit_text);
         EditText password = (EditText) findViewById(R.id.login_user_password_edit_text);
+
+        String usernameEntered = username.getText().toString();
+        String passwordEntered = password.getText().toString();
 
         if(username != null && !username.equals("")) {
            // username.getText().toString();
@@ -95,27 +98,44 @@ public class LoginActivity extends AppCompatActivity {
 //            Password: VKAQ2
 
             Ion.with(LoginActivity.this)
-                    .load(URLs.LOGIN)
-                    .setMultipartParameter("revenue_collector_username", "hadi")
-                    .setMultipartParameter("password", "VKAQ2")
+                    .load("http://mmda-igf-tracker-app.herokuapp.com/api/authenticate")
+                    .setMultipartParameter("revenue_collector_username", usernameEntered)
+                    .setMultipartParameter("password", passwordEntered)
                     .asJsonObject()
                     .setCallback(new FutureCallback<JsonObject>() {
                         @Override
                         public void onCompleted(Exception e, JsonObject result) {
                             // do stuff with the result or error
-                            Log.e("DATA", result.toString());
+//                            Log.e("DATA", result.toString());
 
                             if(result != null){
+                               ServerCallClass caller =  new ServerCallClass (LoginActivity.this);
+
+                                Log.e("DATA", result.toString());
+//                                caller.getTaxCollectorProfile(obkecto);
+                              //  Log.e("PROFILE OBJ", new LocalStore(LoginActivity.this).readProfileAsJson().toString());
 
                                 if (result.get("status").getAsString().equalsIgnoreCase("Success")){
+
+                                    Log.e("SEEING", "HERE");
                                     new LocalStore(LoginActivity.this).saveUserObjectAsString(
-                                            result.get("data").getAsJsonObject().toString());
+                                            result.get("data").getAsJsonObject().get("user").getAsJsonObject().toString());
+//
+                                    Log.e("DATA", result.toString());
+                                   JsonObject obkecto =  new LocalStore(LoginActivity.this).readUserObjectAsJson();
+
+                                    caller.getTaxCollectorProfile(obkecto);
+                                    caller.getTaxAllTaxPayersForACollector(obkecto);
+                                   // Log.e("PROFILE OBJ", new LocalStore(LoginActivity.this).readProfileAsJson().toString());
                                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
 
 
                                 }
 
+                            }
+                            else {
+                                Log.e("DATA", e.toString());
                             }
                         }
                     });

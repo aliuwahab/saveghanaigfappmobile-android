@@ -91,6 +91,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:id="@+id/register_full_name"
                         android:background="@color/lightgray"
                         android:hint="E.g Dubie Hill Top Hotel"
                         android:paddingLeft="20dp" />
@@ -119,6 +120,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:id="@+id/register_tax_bracket"
                         android:background="@color/lightgray"
                         android:hint="Search by entering e.g 'Hotels' "
                         android:paddingLeft="20dp" />
@@ -146,6 +148,7 @@
 
                     <EditText
                         android:layout_width="match_parent"
+                        android:id="@+id/register_contact_person"
                         android:layout_height="50dp"
                         android:background="@color/lightgray"
                         android:hint="E.g. Sumaila Dubie"
@@ -174,6 +177,7 @@
 
 
                     <EditText
+                        android:id="@+id/register_contact_number"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:background="@color/lightgray"
@@ -205,8 +209,12 @@
 
 
                     <EditText
+                        android:id="@+id/register_contact_email"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="209dp"
                         android:background="@color/lightgray"
                         android:hint="E.g aliuwahab@gmail.com"
                         android:paddingLeft="20dp" />
@@ -234,6 +242,7 @@
                         android:layout_height="wrap_content" />
 
                     <EditText
+                        android:id="@+id/register_description"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:layout_alignParentTop="true"
@@ -267,6 +276,7 @@
 
 
                     <EditText
+                        android:id="@+id/register_location_name"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:background="@color/lightgray"
@@ -295,6 +305,7 @@
                         android:layout_height="wrap_content" />
 
                     <EditText
+                        android:id="@+id/register_address"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:layout_alignParentTop="true"

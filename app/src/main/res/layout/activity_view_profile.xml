@@ -53,6 +53,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/profile_full_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
@@ -63,6 +64,7 @@
 
 
                         <TextView
+                            android:id="@+id/profile_phone_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
@@ -71,6 +73,7 @@
                             android:textSize="14sp" />
 
                         <TextView
+                            android:id="@+id/profile_description"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -82,6 +85,7 @@
 
 
                         <TextView
+                            android:id="@+id/profile_location"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
@@ -166,13 +170,14 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/view_tax_payers"
                         android:layout_weight="1"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:textColor="#fcfcfc"
                         android:background="@drawable/buttonstyleorange"
                         android:layout_gravity="center_horizontal"
-                        android:text="Edit Profile" />
+                        android:text="View Tax Payers" />
 
                 </LinearLayout>
 
