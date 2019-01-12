@@ -1,6 +1,7 @@
 package com.gbeilaaliuwahab.saveghanaapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,10 +18,12 @@ import com.gbeilaaliuwahab.saveghanaapp.models.RevenueCollectorProfile;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+import com.mmstq.progressbargifdialog.ProgressBarGIFDialog;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
 import java.net.URL;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,11 +45,23 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginJoinAgendaButton;
     private Button loginReadMoreButton;
 
+    SweetAlertDialog pDialog;
+
+    //Create a global variable
+
+    ProgressBarGIFDialog.Builder progressBarGIFDialog;
+
+//now initialise it in onCreate Method Of Your Activity
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
+
+
 
         // intent = new Intent(this, MainActivity.class);
 
@@ -85,6 +100,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+
+
         EditText username = (EditText) findViewById(R.id.login_username_edit_text);
         EditText password = (EditText) findViewById(R.id.login_user_password_edit_text);
 
@@ -96,6 +113,23 @@ public class LoginActivity extends AppCompatActivity {
             //http://mmda-igf-tracker-app.herokuapp.com/api/authenticate (POST)
 //            Username: hadi
 //            Password: VKAQ2
+
+            progressBarGIFDialog= new ProgressBarGIFDialog.Builder(LoginActivity.this);
+
+            progressBarGIFDialog.setCancelable(false)
+
+                    .setTitleColor(R.color.colorPrimary)
+                    // Set Title Color (int only)
+
+                    .setLoadingGifID(R.drawable.loading) // Set Loading Gif
+
+                    .setDoneGifID(R.drawable.done) // Set Done Gif
+
+                    .setDoneTitle("Login Process completed") // Set Done Title
+
+                    .setLoadingTitle("Authenticating user ") // Set Loading Title
+
+                    .build();
 
             Ion.with(LoginActivity.this)
                     .load("http://mmda-igf-tracker-app.herokuapp.com/api/authenticate")
@@ -117,6 +151,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                 if (result.get("status").getAsString().equalsIgnoreCase("Success")){
 
+                                    progressBarGIFDialog.clear();
+
                                     Log.e("SEEING", "HERE");
                                     new LocalStore(LoginActivity.this).saveUserObjectAsString(
                                             result.get("data").getAsJsonObject().get("user").getAsJsonObject().toString());
@@ -136,24 +172,28 @@ public class LoginActivity extends AppCompatActivity {
                             }
                             else {
                                 Log.e("DATA", e.toString());
+                                Toast.makeText(LoginActivity.this, "Please enter the correct login details", Toast.LENGTH_LONG).show();
+                                progressBarGIFDialog.clear();
                             }
                         }
                     });
         }else{
-//            StyleableToast.makeText(this, "Hello World!", Toast.LENGTH_LONG, R.style.mytoast).show();
+           // StyleableToast.makeText(this, "Hello World!", Toast.LENGTH_LONG, R.style.mytoast).show();
+
+            Toast.makeText(LoginActivity.this, "Please enter login details", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(password != null && !password.equals("")) {
-            password.getText().toString();
-        }else{
-//            StyleableToast.makeText(this, "Hello World!", Toast.LENGTH_LONG, R.style.mytoast).show();
-            return;
-        }
+//        if(password != null && !password.equals("")) {
+//            password.getText().toString();
+//        }else{
+////            StyleableToast.makeText(this, "Hello World!", Toast.LENGTH_LONG, R.style.mytoast).show();
+//            return;
+//        }
 
-        authenticateRevenueCollector(usernameEntered, passwordEntered);
-
-        return;
+//        authenticateRevenueCollector(usernameEntered, passwordEntered);
+//
+//        return;
     }
 
 

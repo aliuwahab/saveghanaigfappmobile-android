@@ -13,6 +13,7 @@ import com.gbeilaaliuwahab.saveghanaapp.Helpers.LocalStore;
 import com.gbeilaaliuwahab.saveghanaapp.Helpers.ServerCallClass;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.mmstq.progressbargifdialog.ProgressBarGIFDialog;
 
 public class RegisterTaxPayerActivity extends AppCompatActivity {
     EditText fullName, taxBrackets, contact_person, registerContactNumber,registerContactEmail,
@@ -26,6 +27,8 @@ public class RegisterTaxPayerActivity extends AppCompatActivity {
     Button register;
 
     Boolean edit;
+
+    ProgressBarGIFDialog.Builder progressBarGIFDialog;
 
 
     @Override
@@ -104,6 +107,25 @@ public class RegisterTaxPayerActivity extends AppCompatActivity {
 
     public void submitData(){
         if(confirm.isChecked()){
+            progressBarGIFDialog= new ProgressBarGIFDialog.Builder(RegisterTaxPayerActivity.this);
+
+            progressBarGIFDialog.setCancelable(false)
+
+                    .setTitleColor(R.color.colorPrimary)
+                    // Set Title Color (int only)
+
+                    .setLoadingGifID(R.drawable.loading) // Set Loading Gif
+
+                    .setDoneGifID(R.drawable.done) // Set Done Gif
+
+                    .setDoneTitle("Registration completed") // Set Done Title
+
+                    .setLoadingTitle("Registering user ") // Set Loading Title
+
+                    .build();
+
+
+
             fullNameString = fullName.getText().toString();
             contact_personString = contact_person.getText().toString();
             registerContactNumberString = registerContactNumber.getText().toString();
