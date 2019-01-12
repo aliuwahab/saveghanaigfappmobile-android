@@ -162,6 +162,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                     caller.getTaxCollectorProfile(obkecto);
                                     caller.getTaxAllTaxPayersForACollector(obkecto);
+                                    caller.getDistrictTaxBrackets(obkecto);
                                    // Log.e("PROFILE OBJ", new LocalStore(LoginActivity.this).readProfileAsJson().toString());
                                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
 

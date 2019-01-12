@@ -80,7 +80,8 @@
             android:drawablePadding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="USERNAME"/>
+            android:hint="USERNAME"
+            android:text="hadi"/>
 
         <EditText
             android:id="@+id/login_user_password_edit_text"
@@ -89,6 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="PASSWORD"
+            android:text="IK1RF"
             android:inputType="textPassword"/>
 
         <Button

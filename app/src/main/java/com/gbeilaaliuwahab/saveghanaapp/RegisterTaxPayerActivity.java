@@ -1,5 +1,6 @@
 package com.gbeilaaliuwahab.saveghanaapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -141,6 +142,9 @@ public class RegisterTaxPayerActivity extends AppCompatActivity {
             new ServerCallClass(RegisterTaxPayerActivity.this).registerTaxPayers(collectorDetails, fullNameString, contact_personString,
                     registerContactNumberString, registerContactEmailString,descriptionString, locationNameString, addressString, bracket_ID );
 
+            progressBarGIFDialog.clear();
+            startActivity(new Intent(RegisterTaxPayerActivity.this, MainActivity.class));
+            finish();
         }
         else {
             Toast.makeText(RegisterTaxPayerActivity.this, "Please Confirm All Inputs and click the checkbox below",
