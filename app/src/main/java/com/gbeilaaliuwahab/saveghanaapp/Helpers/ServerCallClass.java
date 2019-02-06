@@ -1,5 +1,6 @@
 package com.gbeilaaliuwahab.saveghanaapp.Helpers;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -7,12 +8,15 @@ import android.widget.Toast;
 
 import com.gbeilaaliuwahab.saveghanaapp.LoginActivity;
 import com.gbeilaaliuwahab.saveghanaapp.MainActivity;
+import com.gbeilaaliuwahab.saveghanaapp.R;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+import com.mmstq.progressbargifdialog.ProgressBarGIFDialog;
 
 public class ServerCallClass {
     Context context;
+    ProgressBarGIFDialog.Builder progressBarGIFDialog;
 
     public ServerCallClass(Context context) {
         this.context = context;
@@ -23,6 +27,25 @@ public class ServerCallClass {
                                         String contact_email, String description, String location_name, String location_address
                                         , String tax_bracket_id
     ){
+
+
+        progressBarGIFDialog= new ProgressBarGIFDialog.Builder((Activity)this.context);
+
+//        progressBarGIFDialog.setCancelable(true)
+//
+//                .setTitleColor(R.color.colorPrimary)
+//                // Set Title Color (int only)
+//
+//                .setLoadingGifID(R.drawable.loading) // Set Loading Gif
+//
+//                .setDoneGifID(R.drawable.done) // Set Done Gif
+//
+//                .setDoneTitle("Login Process completed") // Set Done Title
+//
+//                .setLoadingTitle("Authenticating user ") // Set Loading Title
+//
+//                .build();
+
         JsonObject serverResults = null;
        GPSLocationData location =  new GPSLocationData(context);
 
@@ -55,9 +78,11 @@ public class ServerCallClass {
                         // do stuff with the result or error
                        // Log.e("TAX PAYER", result.toString());
 
+                        progressBarGIFDialog.clear();
                         if(result != null){
                             Log.e("TAX PAYER", result.toString());
                             Toast.makeText(context, result.toString(), Toast.LENGTH_LONG).show();
+                            progressBarGIFDialog.clear();
 
 //                            if (result.get("status").getAsString().equalsIgnoreCase("Success")){
 ////                                new LocalStore(LoginActivity.this).saveUserObjectAsString(
@@ -74,6 +99,7 @@ public class ServerCallClass {
                         }
                     }
                 });
+        progressBarGIFDialog.clear();
         return serverResults;
     }
 
@@ -85,14 +111,12 @@ public class ServerCallClass {
                 .setMultipartParameter("username", localData.get("revenue_collector_username").getAsString())
                 .setMultipartParameter("validation_token", localData.get("token").getAsString())
                 .setMultipartParameter("district_id", localData.get("id").getAsString())
-
                 .asJsonObject()
                 .setCallback(new FutureCallback<JsonObject>() {
                     @Override
                     public void onCompleted(Exception e, JsonObject result) {
                         // do stuff with the result or error
                         // Log.e("TAX PAYER", result.toString());
-
                         if(result != null){
                              Log.e("TAX BRACKETS", result.toString());
                             if (result.get("status").getAsString().equalsIgnoreCase("Success")){

@@ -214,7 +214,7 @@
                         android:layout_height="50dp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentTop="true"
-                        android:layout_marginTop="209dp"
+                        android:layout_marginTop="5dp"
                         android:background="@color/lightgray"
                         android:hint="E.g aliuwahab@gmail.com"
                         android:paddingLeft="20dp" />
