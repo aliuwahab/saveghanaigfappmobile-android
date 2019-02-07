@@ -5,9 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.gbeilaaliuwahab.saveghanaapp.Helpers.LocalStore;
@@ -17,8 +19,10 @@ import com.google.gson.JsonObject;
 import com.mmstq.progressbargifdialog.ProgressBarGIFDialog;
 
 public class RegisterTaxPayerActivity extends AppCompatActivity {
-    EditText fullName, taxBrackets, contact_person, registerContactNumber,registerContactEmail,
+    EditText fullName, contact_person, registerContactNumber,registerContactEmail,
               description, locationName, address;
+
+    Spinner taxBrackets;
 
     String fullNameString, taxBracketsString, contact_personString, registerContactNumberString,registerContactEmailString,
             descriptionString, locationNameString, addressString;
@@ -49,7 +53,8 @@ public class RegisterTaxPayerActivity extends AppCompatActivity {
 
 
         fullName = (EditText) findViewById(R.id.register_full_name);
-        taxBrackets = (EditText) findViewById(R.id.register_tax_bracket);
+//        taxBrackets = (EditText) findViewById(R.id.register_tax_bracket);
+        taxBrackets = (Spinner) findViewById(R.id.register_tax_bracket);
         contact_person = (EditText) findViewById(R.id.register_contact_person);
         registerContactNumber = (EditText) findViewById(R.id.register_contact_number);
         registerContactEmail = (EditText) findViewById(R.id.register_contact_email);
@@ -83,9 +88,34 @@ public class RegisterTaxPayerActivity extends AppCompatActivity {
 
 
 
+        prepareTaxBracketDropDown();
 
 
     }
+
+
+    public void prepareTaxBracketDropDown() {
+        //get the spinner from the xml.
+        Spinner dropdown = findViewById(R.id.register_tax_bracket);
+        //create a list of items for the spinner.
+        String[] brackets = new String[]{"1", "2", "three"};
+
+        JsonArray taxBracketsObjects =  new LocalStore(RegisterTaxPayerActivity.this).readBracketsObjectAsJson().get("tax_brackets").getAsJsonArray();
+        Log.e("ID",brackets.toString());
+
+        for(int i = 0; i < taxBracketsObjects.size(); i++){
+            Log.e("ID",taxBracketsObjects.get(i).getAsJsonObject().toString());
+            taxBracketsObjects.get(i).getAsJsonObject().get("bracket_name").getAsString();
+        }
+
+        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
+        //There are multiple variations of this, but this is the basic variant.
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, brackets);
+        //set the spinners adapter to the previously created one.
+        dropdown.setAdapter(adapter);
+    }
+
+
 
     private void tryToPopulateWidgetsFroEdits() {
        JsonObject object = new LocalStore(RegisterTaxPayerActivity.this).readPayToEditAsJson();
@@ -137,7 +167,7 @@ public class RegisterTaxPayerActivity extends AppCompatActivity {
             JsonObject collectorDetails = new LocalStore(RegisterTaxPayerActivity.this)
                     .readUserObjectAsJson();
 
-            String bracket_ID = getTaxBracketId(taxBrackets.getText().toString());
+            String bracket_ID = getTaxBracketId(taxBrackets.getSelectedItem().toString());
 
             new ServerCallClass(RegisterTaxPayerActivity.this).registerTaxPayers(collectorDetails, fullNameString, contact_personString,
                     registerContactNumberString, registerContactEmailString,descriptionString, locationNameString, addressString, bracket_ID );

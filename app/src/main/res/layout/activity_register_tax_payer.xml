@@ -117,13 +117,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                    <!--<EditText-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="50dp"-->
+                        <!--android:id="@+id/register_tax_bracket"-->
+                        <!--android:background="@color/lightgray"-->
+                        <!--android:hint="Search by entering e.g 'Hotels' "-->
+                        <!--android:paddingLeft="20dp" />-->
+
+                    <Spinner
                         android:id="@+id/register_tax_bracket"
-                        android:background="@color/lightgray"
-                        android:hint="Search by entering e.g 'Hotels' "
-                        android:paddingLeft="20dp" />
+                        android:layout_height="50dp"
+                        android:layout_width="match_parent"
+                        android:paddingLeft="20dp"
+                        android:background="@android:drawable/btn_dropdown"
+                        android:spinnerMode="dropdown"/>
+
 
                 </LinearLayout>
 
