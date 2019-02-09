@@ -35,11 +35,14 @@ public class RegisterTaxPayerActivity extends AppCompatActivity {
 
     ProgressBarGIFDialog.Builder progressBarGIFDialog;
 
+    LocalStore localStore ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_tax_payer);
+        localStore = new LocalStore(RegisterTaxPayerActivity.this);
         edit = false;
 
         try {
@@ -95,10 +98,21 @@ public class RegisterTaxPayerActivity extends AppCompatActivity {
 
 
     public void prepareTaxBracketDropDown() {
+        JsonObject bracketJson = localStore.readBracketsObjectAsJson();
+        JsonArray bracketsArray = bracketJson.get("tax_brackets").getAsJsonArray();
+        String sizer = String.valueOf(bracketJson.size());
+
+        Log.e("brackers", sizer + " " + bracketJson.toString());
+        String[] brackets = new String[bracketsArray.size()];
+
+        for(int counter = 0; counter < bracketsArray.size(); counter++){
+            brackets[counter] = bracketsArray.get(counter).getAsJsonObject().get("bracket_name").getAsString();
+
+        }
         //get the spinner from the xml.
         Spinner dropdown = findViewById(R.id.register_tax_bracket);
         //create a list of items for the spinner.
-        String[] brackets = new String[]{"1", "2", "three"};
+       // String[] brackets = new String[]{"1", "2", "three"};
 
         JsonArray taxBracketsObjects =  new LocalStore(RegisterTaxPayerActivity.this).readBracketsObjectAsJson().get("tax_brackets").getAsJsonArray();
         Log.e("ID",brackets.toString());
