@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/menuParent"
+    android:background="@drawable/main_menu_box"
+    android:layout_marginTop="10dp">
+
+    <ImageView
+        android:id="@+id/menuImage"
+        android:layout_width="70sp"
+        android:layout_height="70sp"
+        android:src="@drawable/sch_review_menu_image"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:maxHeight="100dp"
+        android:paddingLeft="15dp"
+        android:maxWidth="100dp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/menuImage"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:paddingLeft="10sp">
+
+        <TextView
+            android:id="@+id/menuLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="#0000"
+            android:paddingLeft="10px"
+            android:fontFamily="sans-serif-light"
+            android:text="ghhhhh"/>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/menuLabelChild"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:paddingLeft="11px"
+            android:fontFamily="sans-serif-light"
+            android:textStyle="italic"
+            android:textColor="#64000000" />
+    </LinearLayout>
+
+</RelativeLayout>

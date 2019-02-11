@@ -46,7 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
         viewPayers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this, CardDemoActivity.class));
+                startActivity(new Intent(ProfileActivity.this, TaxCollectorsListDisplay.class));
             }
         });
 

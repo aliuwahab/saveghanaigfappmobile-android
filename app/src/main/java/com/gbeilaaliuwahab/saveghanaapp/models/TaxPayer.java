@@ -1,5 +1,7 @@
 package com.gbeilaaliuwahab.saveghanaapp.models;
 
+import com.google.gson.JsonObject;
+
 public class TaxPayer {
 
     private String taxPayerID;
@@ -8,8 +10,16 @@ public class TaxPayer {
     private String taxPayerContactPersonPhoneNumber;
     private String taxPayerLocationName;
     private String taxPayerLocationAddress;
+    private int image;
 
+    public TaxPayer(String taxPayerID, String taxPayerName,
+                    String taxPayerContactPersonPhoneNumber
+                    ) {
+        this.taxPayerID = taxPayerID;
+        this.taxPayerName = taxPayerName;
+        this.taxPayerContactPersonPhoneNumber = taxPayerContactPersonPhoneNumber;
 
+    }
 
     public String getTaxPayerID() {
         return taxPayerID;
@@ -33,6 +43,11 @@ public class TaxPayer {
 
     public String getTaxPayerLocationAddress() {
         return taxPayerLocationAddress;
+    }
+
+    public JsonObject getInfoObject(){
+
+        return new JsonObject();
     }
 
 
