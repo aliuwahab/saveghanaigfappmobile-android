@@ -8,16 +8,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gbeilaaliuwahab.saveghanaapp.API.JsonAPIRequest;
 import com.gbeilaaliuwahab.saveghanaapp.Helpers.LocalStore;
 import com.gbeilaaliuwahab.saveghanaapp.models.RevenueCollectorProfile;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,9 +30,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ProfileActivity extends AppCompatActivity {
 
     private JsonAPIRequest jsonAPIRequest;
-    TextView fullName, phoneNumber, description,location;
+    TextView fullName, phoneNumber, description,location, recentRevenueReported, totalRevenueReported;
     Button viewPayers;
+    CircleImageView profileImage;
    // String fullNameString, phoneNumberString, descriptionString,locationString;
+
+    LocalStore localStore ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,37 +78,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void getTaxOfficerProfile(int taxOfficerID){
 
-
-        Call<RevenueCollectorProfile> call  = jsonAPIRequest.getRevenueCollectorProfile(taxOfficerID);
-
-        call.enqueue(new Callback<RevenueCollectorProfile>() {
-            @Override
-            public void onResponse(Call<RevenueCollectorProfile> call, Response<RevenueCollectorProfile> response) {
-
-                if (!response.isSuccessful()) {
-
-                    Log.d("ALIU-DEBUG", response.message());
-                    return;
-                }
-
-                RevenueCollectorProfile revenueCollectorProfile = response.body();
-
-                Log.d("ALIU-DEBUG", revenueCollectorProfile.getFirstName());
-
-                return;
-
-
-            }
-
-            @Override
-            public void onFailure(Call<RevenueCollectorProfile> call, Throwable t) {
-
-                Log.d("ALIU-DEBUG", t.getMessage());
-
-            }
-
-
-        });
+//        JsonObject bracketJson = localStore.readProfileAsJson();
 
     }
 
