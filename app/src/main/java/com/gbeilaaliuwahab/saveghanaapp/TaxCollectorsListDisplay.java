@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -127,6 +128,7 @@ public class TaxCollectorsListDisplay extends ListActivity {
 
                 itemHolder.menuImage = (ImageView) convertView.findViewById(R.id.menuImage);
                 itemHolder.menuImage.setVisibility(View.VISIBLE);
+                itemHolder.titleView.setVisibility(View.VISIBLE);
 
                 convertView.setTag(itemHolder);
             }else{
@@ -135,6 +137,8 @@ public class TaxCollectorsListDisplay extends ListActivity {
 
 
             itemHolder.titleView.setText(weeklyList.get(position).getTaxPayerName());
+            itemHolder.titleView.setVisibility(View.VISIBLE);
+            Log.e("Tax Payer name",weeklyList.get(position).getTaxPayerName() );
             itemHolder.menuImage.setImageResource(R.drawable.teacher_icon);
 
             itemHolder.subTextView.setText(  String.format("Type : %s ",
