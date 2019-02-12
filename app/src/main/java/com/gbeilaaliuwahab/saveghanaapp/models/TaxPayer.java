@@ -26,11 +26,11 @@ public class TaxPayer {
     }
 
     public String getTaxPayerName() {
-        return taxPayerName;
+        return this.taxPayerName;
     }
 
     public String getTaxPayerContactPersonFullName() {
-        return taxPayerContactPersonFullName;
+        return this.taxPayerContactPersonFullName;
     }
 
     public String getTaxPayerContactPersonPhoneNumber() {

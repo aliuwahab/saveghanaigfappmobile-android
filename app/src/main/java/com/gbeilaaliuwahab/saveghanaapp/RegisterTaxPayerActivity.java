@@ -152,23 +152,23 @@ public class RegisterTaxPayerActivity extends AppCompatActivity {
 
     public void submitData(){
         if(confirm.isChecked()){
-            progressBarGIFDialog= new ProgressBarGIFDialog.Builder(RegisterTaxPayerActivity.this);
-
-            progressBarGIFDialog.setCancelable(false)
-
-                    .setTitleColor(R.color.colorPrimary)
-                    // Set Title Color (int only)
-
-                    .setLoadingGifID(R.drawable.loading) // Set Loading Gif
-
-                    .setDoneGifID(R.drawable.done) // Set Done Gif
-
-                    .setDoneTitle("Registration completed") // Set Done Title
-
-                    .setLoadingTitle("Registering user ") // Set Loading Title
-
-                    .build();
-
+//            progressBarGIFDialog= new ProgressBarGIFDialog.Builder(RegisterTaxPayerActivity.this);
+//
+//            progressBarGIFDialog.setCancelable(false)
+//
+//                    .setTitleColor(R.color.colorPrimary)
+//                    // Set Title Color (int only)
+//
+//                    .setLoadingGifID(R.drawable.loading) // Set Loading Gif
+//
+//                    .setDoneGifID(R.drawable.done) // Set Done Gif
+//
+//                    .setDoneTitle("Registration completed") // Set Done Title
+//
+//                    .setLoadingTitle("Registering user ") // Set Loading Title
+//
+//                    .build();
+//
 
 
             fullNameString = fullName.getText().toString();
@@ -183,12 +183,13 @@ public class RegisterTaxPayerActivity extends AppCompatActivity {
 
             String bracket_ID = getTaxBracketId(taxBrackets.getSelectedItem().toString());
 
+            Toast.makeText(RegisterTaxPayerActivity.this,"Tax Payer registration started",  Toast.LENGTH_LONG).show();
+
             new ServerCallClass(RegisterTaxPayerActivity.this).registerTaxPayers(collectorDetails, fullNameString, contact_personString,
                     registerContactNumberString, registerContactEmailString,descriptionString, locationNameString, addressString, bracket_ID );
 
-            progressBarGIFDialog.clear();
-            startActivity(new Intent(RegisterTaxPayerActivity.this, MainActivity.class));
-            finish();
+          //  progressBarGIFDialog.clear();
+
         }
         else {
             Toast.makeText(RegisterTaxPayerActivity.this, "Please Confirm All Inputs and click the checkbox below",

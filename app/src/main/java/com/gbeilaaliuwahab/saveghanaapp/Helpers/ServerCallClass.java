@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.gbeilaaliuwahab.saveghanaapp.LoginActivity;
 import com.gbeilaaliuwahab.saveghanaapp.MainActivity;
 import com.gbeilaaliuwahab.saveghanaapp.R;
+import com.gbeilaaliuwahab.saveghanaapp.RegisterTaxPayerActivity;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
@@ -78,20 +79,23 @@ public class ServerCallClass {
                         // do stuff with the result or error
                        // Log.e("TAX PAYER", result.toString());
 
-                        progressBarGIFDialog.clear();
+                       // progressBarGIFDialog.clear();
                         if(result != null){
                             Log.e("TAX PAYER", result.toString());
-                            Toast.makeText(context, result.toString(), Toast.LENGTH_LONG).show();
-                            progressBarGIFDialog.clear();
 
-//                            if (result.get("status").getAsString().equalsIgnoreCase("Success")){
-////                                new LocalStore(LoginActivity.this).saveUserObjectAsString(
-////                                        result.get("data").getAsJsonObject().toString());
-////                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-//
-//
-//
-//                            }
+
+                           // (Activity)context.finish();
+                           // progressBarGIFDialog.clear();
+
+                            if (result.get("status").getAsString().equalsIgnoreCase("Success")){
+//                                new LocalStore(LoginActivity.this).saveUserObjectAsString(
+//                                        result.get("data").getAsJsonObject().toString());
+                                context. startActivity(new Intent(context, MainActivity.class));
+                                Toast.makeText(context, "Tax Payer Registered Successfully", Toast.LENGTH_LONG).show();
+
+
+
+                            }
 
                         }
                         else {
@@ -99,7 +103,7 @@ public class ServerCallClass {
                         }
                     }
                 });
-        progressBarGIFDialog.clear();
+//        progressBarGIFDialog.clear();
         return serverResults;
     }
 
