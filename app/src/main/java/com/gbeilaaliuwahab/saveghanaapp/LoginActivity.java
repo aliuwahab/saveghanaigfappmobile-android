@@ -169,10 +169,13 @@ public class LoginActivity extends AppCompatActivity {
 
 
                                 }
+                                else {
+                                    Toast.makeText(LoginActivity.this, "Please enter the correct login details", Toast.LENGTH_LONG).show();
+                                    progressBarGIFDialog.clear();
+                                }
 
                             }
                             else {
-                                Log.e("DATA", e.toString());
                                 Toast.makeText(LoginActivity.this, "Please enter the correct login details", Toast.LENGTH_LONG).show();
                                 progressBarGIFDialog.clear();
                             }
