@@ -113,10 +113,11 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/recent_revenue_reported"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:text="5700"
+                            android:text="0"
                             android:textStyle="bold"
                             android:textSize="35sp"/>
 
@@ -125,7 +126,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:text="Recent Revenue Reported"
+                            android:text="Recent Reported"
                             android:textSize="14sp"/>
 
 
@@ -140,10 +141,11 @@
                         android:layout_weight="1">
 
                         <TextView
+                            android:id="@+id/total_revenue_reported"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:text="25000"
+                            android:text="0"
                             android:textStyle="bold"
                             android:textSize="35sp"/>
 
@@ -152,7 +154,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:text="Totoal Revenue Reported"
+                            android:text="Totoal Revenue"
                             android:textSize="14sp"/>
 
                     </LinearLayout>
