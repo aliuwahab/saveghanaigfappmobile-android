@@ -176,7 +176,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             }
                             else {
-                                Toast.makeText(LoginActivity.this, "Please enter the correct login details", Toast.LENGTH_LONG).show();
+                                Toast.makeText(LoginActivity.this, "Your device may not be connected at the moment", Toast.LENGTH_LONG).show();
                                 progressBarGIFDialog.clear();
                             }
                         }

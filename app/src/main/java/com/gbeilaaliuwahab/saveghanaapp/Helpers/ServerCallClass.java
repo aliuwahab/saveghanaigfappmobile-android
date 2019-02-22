@@ -108,13 +108,14 @@ public class ServerCallClass {
     }
 
     public JsonObject getDistrictTaxBrackets(JsonObject localData){
+        Log.e("DISP BRACKETS DATA", localData.toString());
         JsonObject serverResults = null;
 
         Ion.with(this.context)
                 .load(URLs.GET_DISTRICT_TAX_BRACKETS)
                 .setMultipartParameter("username", localData.get("revenue_collector_username").getAsString())
                 .setMultipartParameter("validation_token", localData.get("token").getAsString())
-                .setMultipartParameter("district_id", localData.get("id").getAsString())
+                .setMultipartParameter("district_id", localData.get("district_id").getAsString())
                 .asJsonObject()
                 .setCallback(new FutureCallback<JsonObject>() {
                     @Override

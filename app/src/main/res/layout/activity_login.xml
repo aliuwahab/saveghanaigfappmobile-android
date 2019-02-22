@@ -81,6 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="USERNAME"
+            android:text="dintie"
             />
 
         <EditText
@@ -90,6 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="PASSWORD"
+            android:text="S4SCD"
             android:inputType="textPassword"/>
 
         <Button
